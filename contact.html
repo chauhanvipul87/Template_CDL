@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CDL</title>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+
+<!--banner slider-->
+<script type="text/javascript" src="js/easySlider1.5.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){	
+			$("#slider").easySlider({
+				auto: true,
+				continuous: true 
+			});
+		});	
+</script>
+<!--banner slider ends-->
+
+<!--fonts starts-->
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/Calibri_400.font.js"></script>
+<script type="text/javascript">
+	Cufon.replace('h1');
+</script>
+<!--fonts ends-->
+
+<!--tabs starts-->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		$(activeTab).show();
+		return false;
+	});
+
+});
+</script>
+
+
+
+<!--<link rel="stylesheet" href="css/prettyPhoto.css">
+<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>-->
+</head>
+<body>
+
+<!--<div style="position:absolute;" id="menu">
+
+<a href="#forms" rel="prettyPhoto"><img src="images/resume_btn.png" /></a>
+ <div id="#forms" class="hide">
+  <table border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td width="150" align="left" valign="top">Order Type :</td>
+    <td width="200" align="left" valign="top">
+    <select name="ordertypeid">
+        <option>Processed by CDL</option>
+        <option>Entered via Extranet / Direct Transfer</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Fulfilment Type :</td>
+    <td align="left" valign="top">
+    <select name="pickingid">
+        <option>Picking - Standard</option>
+        <option>Picking - Next Day</option>
+        <option>Picking - Wholesale</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Warehouse instructions :</td>
+    <td align="left" valign="top"><textarea name="textarea" rows="4"></textarea></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Delivery instructions :</td>
+    <td align="left" valign="top"><textarea name="textarea3" rows="4"></textarea></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Contact :</td>
+    <td align="left" valign="top"><input type="text" value="Helena Culhane-Rozsa" name="">
+      <font color="red">* </font></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">CDL ref :</td>
+    <td align="left" valign="top"><input maxlength="6" value="" name="jobbagno">
+      <font color="red">* </font> <a href="#"> Search</a></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Customer order ref :</td>
+    <td align="left" valign="top"><input  value="" name="cust_order_ref"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Order Cost Code :</td>
+    <td align="left" valign="top"><input value="" id="costcode" name="costcode">
+      <font color="red">*</font> <a href="#">Search</font></a></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Gift Wrap :</td>
+    <td align="left" valign="top">
+    <select name="giftwrapid">
+        <option selected="">No wrapping</option>
+        <option>Standard</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Gift Message :</td>
+    <td align="left" valign="top"><textarea name="textarea2" rows="4"></textarea></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Authorised By :</td>
+    <td align="left" valign="top"><input name="authby" value=""></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Delivery Service :</td>
+    <td align="left" valign="top">
+    <select name="delserv_id">
+        <option>Collect from CDL [parcel]</option>
+        <option>Highlands (Next Day) [parcel]</option>
+        <option>Internal Drop [parcel]</option>
+        <option>International Despatch [order]</option>
+        <option>International Despatch 2 [order]</option>
+        <option>Isle of Man (Next Day) [parcel]</option>
+        <option>Isle of Wight (Next Day) [parcel]</option>
+        <option>Normal Destruction [parcel]</option>
+        <option>Northern Ireland (Next Day) [parcel]</option>
+        <option>Pallet Delivery Next Day [pallet]</option>
+        <option>Pallet Pre-timed [pallet]</option>
+        <option>Reverse Collections [parcel]</option>
+        <option>Royal Mail Client A/C [parcel]</option>
+        <option>Royal Mail delivery CDL a/c [order]</option>
+        <option>Same Day Delivery [order]</option>
+        <option>Saturday UK [parcel]</option>
+        <option>Scottish Islands (Next Day) [parcel]</option>
+        <option>Special Delivery [order]</option>
+        <option>UK (Next Day before 12) [parcel]</option>
+        <option>UK (Next Day) [parcel]</option>
+        <option>UK Next Day (No Signature Req) [parcel]</option>
+        <option>Unassigned International Despatch [parcel]</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Delivery Date:</td>
+    <td align="left" valign="top"><select name="" id="day">
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+      </select>
+      <select name="month" id="month">
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select name="year" id="year">
+        <option>2010</option>
+        <option>2011</option>
+        <option>2012</option>
+        <option>2013</option>
+        <option>2014</option>
+        <option>2015</option>
+      </select>
+      &nbsp;
+      <input type="checkbox" value="on" name="" id="delbydate">
+       Use this date?
+      </td>
+  </tr>
+</table>
+ </div>
+
+</div>-->
+
+
+<div id="contactable"></div>
+<script type="text/javascript" src="js/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="js/jquery.contactable.min.js"></script>
+<link rel="stylesheet" href="css/contactable.css" type="text/css" />
+<script>$(function(){$('#contactable').contactable({subject: 'feedback URL:'+location.href});});</script>
+
+<!--header starts-->
+<div id="head">
+  <div class="rows">
+    <div class="logobox"><a href="index.php"><img src="images/cdl_logo.png" width="156" height="53" /></a></div>
+    <div class="soclial_net">
+      <ul>
+        <li><a href="#"><img src="images/icon_fb.png" alt="Like us on Facebook" title="Like us on Facebook" /></a></li>
+        <li><a href="#"><img src="images/icon_twit.png" alt="Follow us on Twitter" title="Follow us on Twitter" /></a></li>
+        <li><a href="#"><img src="images/icon_ms.png" alt="Join us on myspace" title="Join us on myspace" /></a></li>
+        <li><a href="#"><img src="images/icon_in.png" alt="Linkdin" title="Linkdin" /></a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--header ends--> 
+
+<!--menu starts-->
+<div id="navi">
+  <div class="rows">
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="company.php">Company</a></li>
+      <li><a href="services.php">Services</a></li>
+      <li><a href="portfolio.php">Portfolio</a></li>
+      <li><a href="career.php">Careers</a></li>
+      <li><a href="contact.php">Contacts</a></li>
+    </ul>
+  </div>
+</div>
+<!--menu ends--><!--main container starts-->
+<div id="main_container">
+  <div class="rows">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+        <td><div id="container">
+            <div id="content_body">
+              <div id="slider">
+                <ul>
+                  <li><a href="#"><img src="images/banner1.jpg" alt="Css Template Preview" /></a></li>
+                  <li><a href="#"><img src="images/banner2.jpg" alt="Css Template Preview" /></a></li>
+                  <li><a href="#"><img src="images/banner3.jpg" alt="Css Template Preview" /></a></li>
+                  <li><a href="#"><img src="images/banner4.jpg" alt="Css Template Preview" /></a></li>
+                  <li><a href="#"><img src="images/banner5.jpg" alt="Css Template Preview" /></a></li>
+                  <li><a href="#"><img src="images/banner6.jpg" alt="Css Template Preview" /></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div style="background:url(images/banner_shadow.gif) center top no-repeat; height:31px;"></div></td>
+      </tr>      <tr>
+        <td class="three_col"><ul>
+            <li>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2" valign="middle"><h1>Top-class quality</h1></td>
+                </tr>
+                <tr>
+                  <td width="85" height="75" align="center" valign="middle"><img src="images/icon_thumb.png" /></td>
+                  <td><div class="small_sub_font">We provides top class website designing, development services and SEO services.</div>
+                  <!--  <a href="#" class="bluebtn">Read More</a>--></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center" valign="middle" height="10"></td>
+                </tr>
+              </table>
+          </li>
+            <li>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2"><h1>Great cost savings</h1></td>
+                </tr>
+                <tr>
+                  <td width="85" height="75" align="center" valign="middle"><img src="images/great_cost_saving.png" /></td>
+                  <td><div class="small_sub_font">We specialize in providing Cheap, Affordable Website Design,  SEO, <br />Print Media Design Solutions.</div>
+                    <!--<a href="#" class="bluebtn">Read More</a>--></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center" valign="middle" height="10"></td>
+                </tr>
+              </table>
+            </li>
+            <li class="last">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2"><h1>Security and confidentiality </h1></td>
+                </tr>
+                <tr>
+                  <td width="85" height="75" align="center" valign="middle"><img src="images/security.png" /></td>
+                  <td><div class="small_sub_font">At CDL, all the security measures are kept in mind to keep your information secured. </div>
+                    <!--<a href="#" class="bluebtn">Read More</a>--></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center" valign="middle" height="10"></td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+          <div class="clear"></div></td>
+      </tr>      <tr>
+        <td class="sub_fonts" style="padding:15px 0 0 0;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="justify" valign="top"><h1>Contact us</h1>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td colspan="2" style="border-bottom:1px solid #999;">
+                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Email</b>
+     <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><strong>General Information:</strong></td>
+    <td width="10">&nbsp;</td>
+    <td>info@cdlbackoffice.com</td>
+  </tr>
+  <tr>
+    <td><strong>Career:</strong></td>
+    <td>&nbsp;</td>
+    <td>career@cdlbackoffice.com</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+     </table>
+
+    </td>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top">&nbsp;</td>
+                    <td align="left" valign="top">&nbsp;</td>
+                  </tr>
+                  
+                 
+                  <tr>
+                    <td align="left" valign="top"><b>Office Address</b><br />
+                     CDL Backoffice Services Pvt. Ltd. <br />
+
+Vadodara<br />
+203, Anand Complex,<br />
+2 Anand Nagar Soc., <br />
+Jetalpur Road<br />
+Vadodara, Gujarat, India<br /><br />
+
+
+<b>Phone:</b><br />
++91 (265)-3928697, (0265)-3928698, (0265)-3928699, <br />
+<br />
+
+<b>Fax:</b><br />
++91 (265) 3928696<br />
+
+
+                    </td>
+                    <td width="425" align="left" valign="top">
+                    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?source=s_q&amp;hl=en&amp;geocode=&amp;q=CDL+back+office+203,+anand+complex,&amp;aq=&amp;sll=22.307381,73.176284&amp;sspn=0.005459,0.009645&amp;vpsrc=6&amp;ie=UTF8&amp;hq=CDL+back+office+203,+anand+complex,&amp;hnear=Jetalpur+Rd,+Vadodara,+Gujarat,+India&amp;t=m&amp;ll=22.307291,73.174288&amp;spn=0.010918,0.01929&amp;z=14&amp;iwloc=A&amp;cid=4669011910461739737&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?source=embed&amp;hl=en&amp;geocode=&amp;q=CDL+back+office+203,+anand+complex,&amp;aq=&amp;sll=22.307381,73.176284&amp;sspn=0.005459,0.009645&amp;vpsrc=6&amp;ie=UTF8&amp;hq=CDL+back+office+203,+anand+complex,&amp;hnear=Jetalpur+Rd,+Vadodara,+Gujarat,+India&amp;t=m&amp;ll=22.307291,73.174288&amp;spn=0.010918,0.01929&amp;z=14&amp;iwloc=A&amp;cid=4669011910461739737" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+                    </td>
+                  </tr>
+                  
+                  
+                </table>
+                </td>
+              <td width="40" align="left" valign="top" style="background:url(images/bg_content_seperator.gif) center top repeat-y;"></td>
+<td width="255" align="left" valign="top" class="right_pnl">
+<h1>Testimonials</h1>
+  <!--<b>mr. Jayesh Patel (Canada)</b><br />
+  "Great work & help us to move one step ahead with good technology." <br />
+  <br />
+  <b>mr. Kush Darji (New York)</b><br />
+  "We are happy to choose CDL, India for our web development." <br />-->
+  
+  Coming Soon...
+  <br />
+  <!--<a href="#" class="bluebtn">Read More</a>-->
+  
+  <br /><br /><br />
+  
+  <h1>Latest News</h1>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top" style="padding:0 7px 0 0;">
+     <div class="datebox">
+      <div class="date">
+      16 Sep</div>
+      <div class="year">2011</div>
+     </div>
+    </td>
+    <td align="left" valign="middle">
+    <b>CDL Launches New Site</b>
+    <!--<a href="#" class="more">Read More..</a>-->
+    </td>
+  </tr>
+  
+  
+</table>
+
+  
+  
+  
+</td>
+            </tr>
+          </table>
+          <br /></td>
+      </tr>
+    </table>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--main container ends-->
+<!--footer starts-->
+<div id="footer">
+  <div class="rows">
+    <div style="float:left;">Copyrights &copy; 2011. CDL Back Office Services Pvt. Ltd. All rights reserved</div>
+    <div style="float:right;"><a href="contact.php">Contact us</a></div>
+  </div>
+</div>
+<!--footer ends-->
+
+
+<!--<script type="text/javascript" src="js/floatbox.js"></script>
+<script type="text/javascript">
+	$(function(){$(".gallery:not(.slideshow) a[rel^='prettyPhoto']").prettyPhoto();
+ 	$(".gallery.slideshow a[rel^='prettyPhoto']").prettyPhoto({slideshow:5000, autoplay_slideshow:true});	});
+</script>-->
+
+
+</body>
+</html>
+<script type="text/javascript" src="js/accordian.js"></script>
